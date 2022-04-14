@@ -1,0 +1,60 @@
+<div *ngIf="!loading" class="table">
+    <div class="header">
+        <div class="check" *ngIf="config.checkBox">
+            <input type="checkbox" (click)="selectAll()" [checked]="masterChecked" class="custom-checkbox" name="check"
+                id="check">
+            <label for="check"></label>
+        </div>
+        <div class="desc" [ngClass]="{'sortable' : header.sortable}" [ngStyle]="{'width' : header.width + '%'}"
+            *ngFor="let header of config.headers">
+            <span>{{header.name}}</span>
+        </div>
+        <div class="actions" *ngIf="config.actionDelete || config.actionEdit">
+
+        </div>
+    </div>
+    <div class="table-body">
+        <div class="table-row" *ngFor="let row of config.data">
+            <div class="check" *ngIf="config.checkBox">
+                <input type="checkbox" class="custom-checkbox" (click)="select($event,row)" name="row-check"
+                    id="{{row.id}}">
+                <label for="{{row.id}}"></label>
+            </div>
+            <div class="cell" [ngStyle]="{'width' : header.width + '%'}" *ngFor="let header of config.headers">
+                <span *ngIf="!header.type">{{row[header.content!]}}</span>
+                <span *ngIf="header.type == 'price'">{{row[header.content!] | currency:'PHP'}}</span>
+            </div>
+            <div class="actions">
+                <!-- <span class="edit" *ngIf="config.actionEdit" (click)="edit(row)">
+                    <img src="../../../assets/icons/edit.svg" width="13px" alt="edit">
+                </span> -->
+                <span class="edit" *ngIf="config.actionEdit" (click)="edit(row)">
+                    <img src="../../../assets/icons/edit.svg" width="13px" alt="edit">
+                </span>
+                <span class="delete" *ngIf="config.actionDelete" (click)="delete(row)">
+                    <img src="../../../assets/icons/delete.svg" width="13px" alt="delete">
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loading" class="table">
+    <div class="header">
+        <div class="desc" *ngFor="let x of [1,2,3,4]">
+            <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+        </div>
+        <div class="actions">
+
+        </div>
+    </div>
+    <div class="table-body">
+        <div class="table-row" *ngFor="let x of [1,2,3,4,5,6]">
+            <div class="cell" *ngFor="let y of [1,2,3,4]">
+                <ngx-skeleton-loader count="1" appearance="line"></ngx-skeleton-loader>
+            </div>
+            <div class="actions">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+.header{
+    height: 55px;
+    background-color: white;
+    padding: 1rem;
+    border-bottom: 1px solid var(--gray);
+    display: flex;
+    align-items: center;
+
+    .toggler{
+        height: 24px;
+        opacity: .6;
+        cursor: pointer;
+    }
+}

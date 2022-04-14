@@ -1,0 +1,45 @@
+.select{
+    background-color: white;
+    border-radius: 10px;
+    min-width: 175px;
+    height: 35px;
+    border: 1px solid #eeeeee;
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0rem 1rem;
+    color: gray;
+
+    .arrow{
+        position: absolute;
+        width: 12px;
+        right: 1rem;
+        opacity: .3;
+    }
+
+    .options{
+        display: none;
+        position: absolute;
+        background-color: white;
+        top: 37px;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid #eeeeee;
+        padding: 0;
+
+        &.toggled{
+            display: block;
+        }
+
+        p{
+            margin: 0;
+            padding: 1rem;
+            &:hover{
+                background-color: var(--gray);
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<div class="product" (click)="click(product)">
+    <div class="image">
+        <img src="data:image/png;base64,{{product.image}}" alt="">
+    </div>
+
+    <p class="name">{{product.name}}</p>
+    <p class="price">{{product.price | currency:'PHP '}}</p>
+</div>

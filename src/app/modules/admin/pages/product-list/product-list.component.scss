@@ -1,0 +1,17 @@
+.product-list {
+
+    .actions {
+        font-size: .8rem;
+        font-weight: 500;
+    }
+
+    .selected-rows {
+        background-color: white;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        font-size: 16px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+    }
+}

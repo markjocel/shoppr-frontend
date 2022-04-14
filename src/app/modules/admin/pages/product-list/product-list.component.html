@@ -1,0 +1,45 @@
+<div class="product-list px-5 py-4">
+    <h2>
+        Products list
+    </h2>
+
+    <div class="actions mt-5 mb-3 d-flex justify-content-between">
+        <button class="btn btn-main" (click)="addProduct()">
+            <img src="../../../../../assets/icons/plus.svg" alt="" width="12px" class="mr-1">
+            Add Product
+        </button>
+
+        <div class="d-flex">
+            <div class="d-flex mr-2 align-items-center">
+                <p class="medium mr-2 mb-0">Category: </p>
+                <app-custom-select [options]="options"></app-custom-select>
+            </div>
+            <input type="text" class="custom-input mr-2 icon search" placeholder="Search...">
+            <button class="btn btn-main mr-2">Filter</button>
+            <button class="btn btn-outline">Reset</button>
+        </div>
+    </div>
+
+    <div class="selected-rows" *ngIf="selectedProducts && selectedProducts!.length >= 1">
+        {{selectedProducts?.length}} product/s selected.
+
+        <button class="btn btn-main mx-3">Bulk Edit</button>
+        <button class="btn btn-red">Delete</button>
+    </div>
+
+    <div class="product-table mt-2">
+        <app-custom-table [config]="tableConfig" [loading]="flag" (clickEdit)="editProduct($event)"
+            (clickDelete)="deleteProduct($event)" (selectedRows)="getSelectedProducts($event)">
+        </app-custom-table>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-md-3" *ngFor="let product of products">
+            <app-product [product]="product" (clickProduct)="clickProduct($event)"></app-product>
+        </div>
+    </div>
+
+    <app-product-modal id="product" [selectedProduct]="selectedProduct">
+        {{selectedProduct?.name}}
+    </app-product-modal> -->
+</div>

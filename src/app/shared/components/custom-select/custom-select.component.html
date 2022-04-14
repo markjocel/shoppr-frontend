@@ -1,0 +1,11 @@
+<div class="select" (click)="toggleSelect()">
+    <span class="selected">
+        {{selected}}
+    </span>
+
+    <img src="../../../assets/icons/chevron-down.svg" alt="" class="arrow">
+
+    <div class="options" [ngClass]="{'toggled' : toggled}">
+        <p *ngFor="let option of options" (click)="toggleSelect(option)">{{option}}</p>
+    </div>
+</div>

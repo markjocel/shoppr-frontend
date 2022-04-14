@@ -1,0 +1,34 @@
+<div class="custom-modal">
+    <div class="custom-modal-body" [ngClass]="{'big-modal-body' : bigModal}">
+        <span class="close" (click)="close()">×</span>
+        <div class="product">
+            <div class="image col-12 col-md-6">
+                <img src="data:image/png;base64,{{selectedProduct?.image}}" alt="">
+            </div>
+            <div class="info col-12 col-md-6">
+                <p class="name">
+                    {{selectedProduct?.name}}
+                </p>
+                <p class="price">
+                    {{selectedProduct?.price | currency:'₱ '}}
+                </p>
+                <p class="desc">
+                    &nbsp;
+                    {{selectedProduct?.description}}
+                </p>
+                <p class="quantity">
+                    Available stock: {{selectedProduct?.quantity}}
+                </p>
+                <div class="action">
+                    <button (click)="edit(selectedProduct?.id)" class="edit">
+                        EDIT
+                    </button>
+                    <button class="delete">
+                        DELETE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="custom-modal-background"></div>

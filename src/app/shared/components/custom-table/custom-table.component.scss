@@ -1,0 +1,163 @@
+.table {
+    .header {
+        background-color: white;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        font-size: .9rem;
+        font-weight: 700;
+        padding: 0 15px 0px 8px;
+        border-radius: 10px;
+
+        div {
+            padding: 1rem;
+            width: 200px;
+            flex-grow: 1;
+        }
+
+        .check {
+            max-width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .actions {
+            max-width: 120px;
+        }
+
+        .sortable {
+            cursor: pointer;
+
+            &.desc {
+                span {
+                    display: flex;
+                    align-items: center;
+
+                    &:after {
+                        opacity: .4;
+                        margin-left: 5px;
+                        margin-top: 3px;
+                        content: url(../../../../assets/icons/chevrons-down.svg);
+                    }
+                }
+            }
+
+            &.asc {
+                span {
+                    display: flex;
+                    align-items: center;
+
+                    &:after {
+                        opacity: .4;
+                        margin-left: 5px;
+                        margin-top: 5px;
+                        content: url(../../../../assets/icons/chevrons-up.svg);
+                    }
+                }
+            }
+        }
+    }
+
+    .table-body {
+        margin-top: 10px;
+        background-color: white;
+        border-radius: 10px;
+        max-height: 500px;
+        overflow: hidden;
+        position: relative;
+        // offset for scroll
+        padding-right: 7px;
+
+        &:hover {
+            overflow: auto;
+            padding-right: 0px;
+        }
+
+        &::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    }
+
+    .table-row {
+
+        background-color: white;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        font-size: .9rem;
+        padding: 0 .5rem;
+        border-radius: 10px;
+        position: relative;
+
+        &:hover{
+            background-color: var(--gray);
+        }
+
+        &::after {
+            content: '';
+            width: calc(100% - 3rem);
+            left: 1.5rem;
+            height: 2px;
+            background-color: var(--gray);
+            position: absolute;
+            bottom: 0;
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+
+        div {
+            padding: 1rem;
+            width: 200px;
+            flex-grow: 1;
+        }
+
+        .check {
+            max-width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            max-width: fit-content;
+
+            span {
+                border-radius: 30px;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            .edit {
+                background-color: rgba($color: #009fda, $alpha: 0.2);
+                margin-right: 15px;
+            }
+
+            .delete {
+                background-color: rgba($color: #ed1c24, $alpha: 0.2);
+            }
+        }
+    }
+}
