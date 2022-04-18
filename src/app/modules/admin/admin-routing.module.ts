@@ -22,6 +22,7 @@ const routes: Routes = [
         path: 'products/add',
         component: AddProductComponent
       },
+      { path: '**', redirectTo: '/admin/products' }
       // { path: '**', redirectTo: '/products' }
     ]
   }
